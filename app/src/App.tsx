@@ -9,11 +9,11 @@ import PokeDisplay from './components/PokeDisplay/PokeDisplay';
 function App() {
   /* @blurb 
   * As our app grows there is merit in changing this to be a single state identifier, like a string or enum,
-  * so we do not have to pass in each value to our creation script each time. This would be something I would
-  * talk to the team / designers about.
+  * so we do not have to pass in each value to our child component each time. This would be something I would
+  * talk to the team / designers about or ask about.
   */
   const [sortName, updateSortName] = useState(false);
-  const [sortID, updateSortID] = useState(false);
+  const [sortID, updateSortID] = useState(true);
 
   /* Internal pagination index, used with the entriesPerPage to determine what IDs we load */
   const [pageIndex, updatePageIndex] = useState(0);
@@ -35,7 +35,7 @@ function App() {
   }
 
   /**
-   * 
+   * @desc handle updating the pagination off of the corresponding button event.
    * @param direction the direction in which we want to go, for now just 1 but could be updated to jump multiple pages.
    */
   function handleUpdatePagination(direction: number) {
@@ -55,12 +55,12 @@ function App() {
         </div>
 
         <div className="app-header-radio-group">
-          <RadioLabel name={"header"} label={"Sort Name"} stateCallback={() => {updateSortName(true); updateSortID(false)}}/>
-          <RadioLabel name={"header"} label={"Sort ID"} stateCallback={() => {updateSortName(false); updateSortID(true)}}/>
+          <RadioLabel defaultState={false} name={"header"} label={"Sort Name"} stateCallback={() => {updateSortName(true); updateSortID(false)}}/>
+          <RadioLabel defaultState={true} name={"header"} label={"Sort ID"} stateCallback={() => {updateSortName(false); updateSortID(true)}}/>
         </div>
       </div>
 
-      <PokeDisplay pokemonIDs={generatePokemonIDs(pageIndex)}/>
+      <PokeDisplay pokemonIDs={generatePokemonIDs(pageIndex)} sortName={sortName} sortID={sortID}/>
 
       <div className="app-footer">
           <button className="button" onClick={() => {handleUpdatePagination(-1)}}>Previous {entriesPerPage}</button>

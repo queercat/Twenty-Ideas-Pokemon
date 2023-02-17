@@ -1,32 +1,18 @@
 import "./PokeCard.css";
 
-import { useEffect, useState } from "react";
+import { PokeBlob } from "../PokeDisplay/PokeDisplay";
 
+/**
+ * @interface Cardinfo
+ * @field blob {PokeBlob} a blob containing the needed data to render our Pokemon card (ha) / component.
+ */
 interface CardInfo {
-    url:string
+    blob: PokeBlob,
 }
 
-function PokeCard({url}:CardInfo) {
-    const [name, setName] = useState("...");
-    const [imageURL, setImageURL] = useState("");
-
-    useEffect(() => {
-        const getData = async () => {
-            return fetch(url);
-        }
-
-        getData().then(body => {
-            body.text().then(text => {
-                const resp = JSON.parse(text);
-                let name = resp["name"];
-                let frontSpriteURL = resp["sprites"]["front_default"];
-
-                /* https://stackoverflow.com/questions/1026069/how-do-i-make-the-first-letter-of-a-string-uppercase-in-javascript */
-                setName(name[0].toUpperCase() + name.slice(1));
-                setImageURL(frontSpriteURL);
-            })
-        });
-    })
+function PokeCard({blob}:CardInfo) {
+    const name = blob?.name;
+    const imageURL = blob?.imageURL;
 
     return (
         <div className="poke-container">
