@@ -21,12 +21,17 @@
 }
 
 /* Setting defaults */
-body {
+body, #root, html {
   margin: 0;
   padding: 0;
+  height: 100%;
 
   /* Neutral page background */
   background: var(--page-background);
+}
+
+* {
+  box-sizing: border-box;
 }
 
 /* https://www.figma.com/best-practices/typography-systems-in-figma/typography-scales/ */

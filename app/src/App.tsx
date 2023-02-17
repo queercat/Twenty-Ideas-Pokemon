@@ -1,8 +1,10 @@
 import React from 'react';
 import './App.css';
 
-import RadioLabel from '../src/components/RadioLabel/RadioLabel';
 import { useState } from 'react';
+
+import RadioLabel from '../src/components/RadioLabel/RadioLabel';
+import PokeDisplay from './components/PokeDisplay/PokeDisplay';
 
 function App() {
   /* @blurb 
@@ -34,6 +36,19 @@ function App() {
     return pokemonIDs;
   }
 
+  /**
+   * 
+   * @param direction the direction in which we want to go, previous is -1, next is 1. would be reasonable for this to just be a bool.
+   */
+  function handleUpdatePagination(direction: number) {
+    const MAX_POKEMON_ID:number = 1008; 
+    let currentPage = pageIndex + 1;
+
+    if ((currentPage + direction) > 0 && ((currentPage + direction) * entriesPerPage <= MAX_POKEMON_ID)) {
+      updatePageIndex(pageIndex + direction);
+    }
+  }
+
   return (
     <div className="app-container">
       <div className="app-header">
@@ -46,6 +61,13 @@ function App() {
           <RadioLabel name={"header"} label={"Sort ID"} stateCallback={() => {updateSortName(false); updateSortID(true)}}/>
         </div>
       </div>
+
+      <PokeDisplay numberOfRows={entriesPerPage/entriesPerRow} entriesPerRow={entriesPerRow} pokemonIDs={generatePokemonIDs()}/>
+
+      <div className="app-footer">
+          <button className="button" onClick={() => {handleUpdatePagination(-1)}}>Previous {entriesPerPage}</button>
+          <button className="button" onClick={() => {handleUpdatePagination(1)}}>Next {entriesPerPage}</button>
+        </div>
     </div>
   );
 }
