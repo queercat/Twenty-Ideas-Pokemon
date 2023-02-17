@@ -1,10 +1,12 @@
 /* Simple font imports for now, can also just install locally if we notice font pop */
 @import url('https://fonts.googleapis.com/css2?family=Encode+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Encode+Sans&family=Roboto&display=swap');
 
-/* Global variables in case we change things, we could also just use SASS */
+/* Global variables in case we change things, we could also just use SASS or some compiled CSS */
 :root {
   --font-headlines-buttons: 'Encode Sans', sans-serif;
-  
+  --font-body-subtiltes-buttons: 'Roboto', sans-serif;
+
   /* Page profiles */
   --page-background: #F6F6F7;
   --section-background: #FDFDFD;
@@ -27,10 +29,8 @@ body {
   background: var(--page-background);
 }
 
-
 /* https://www.figma.com/best-practices/typography-systems-in-figma/typography-scales/ */
 /* Following spec for headlines. (Typography @ Headlines & Buttons) */
-
 h1 {
   font-size: 88pt;
   font-family: var(--font-headlines-buttons);
@@ -61,3 +61,33 @@ h6 {
   font-family: var(--font-headlines-buttons);
 }
 
+/* Following spec for body copy, subtitles, and buttons */
+.subtitle-1 {
+  font-family: var(--font-body-subtiltes-buttons);
+  font-size: 28pt;
+}
+
+.subtitle-2 {
+  font-family: var(--font-body-subtiltes-buttons);
+  font-size: 24pt;
+}
+
+.body-1 {
+  font-family: var(--font-body-subtiltes-buttons);
+  font-size: 32pt;
+}
+
+.body-2 {
+  font-family: var(--font-body-subtiltes-buttons);
+  font-size: 24pt;
+}
+
+.button {
+  font-family: var(--font-body-subtiltes-buttons);
+  font-size: 24pt;
+}
+
+.overline {
+  font-family: var(--font-body-subtiltes-buttons);
+  font-size: 20pt;
+}
