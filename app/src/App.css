@@ -1,0 +1,22 @@
+.app-container {
+  display: flex;
+  flex-direction: column;
+  padding: 48px;
+  gap: 16px;
+}
+
+.app-header {
+  display: flex;
+  align-items: center;
+  
+  padding: 0px 0px 8px;
+  gap: 4px;
+}
+
+.app-header-title {
+  flex-grow: 1;
+}
+
+.app-header-radio-group {
+  display: flex;
+}
