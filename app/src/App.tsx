@@ -19,18 +19,16 @@ function App() {
   const [pageIndex, updatePageIndex] = useState(0);
   const entriesPerPage = 12;
 
-  const entriesPerRow = 4;
-
   /**
    * @desc knowing the internal page index generate a list of IDs offset from that.
-   * @blurb it's probably worth noting while this doesn't mutate state as a side-effect it does read from global state. this can be modified relatively easily but within this scope is a non-issue.
+   * @param page:number the internal page to know what offset to get.
    * @returns number[] a list of non-negative IDs to call the pokemon API from.
    */
-  function generatePokemonIDs():number[] {
+  function generatePokemonIDs(page:number):number[] {
     let pokemonIDs:number[] = [];
 
-    for (let i = 0; i < entriesPerPage; i++) {
-      pokemonIDs.push(i * (pageIndex + 1));
+    for (let i = 1; i < entriesPerPage + 1; i++) {
+      pokemonIDs.push((entriesPerPage * page) + i);
     }
 
     return pokemonIDs;
@@ -38,7 +36,7 @@ function App() {
 
   /**
    * 
-   * @param direction the direction in which we want to go, previous is -1, next is 1. would be reasonable for this to just be a bool.
+   * @param direction the direction in which we want to go, for now just 1 but could be updated to jump multiple pages.
    */
   function handleUpdatePagination(direction: number) {
     const MAX_POKEMON_ID:number = 1008; 
@@ -62,7 +60,7 @@ function App() {
         </div>
       </div>
 
-      <PokeDisplay numberOfRows={entriesPerPage/entriesPerRow} entriesPerRow={entriesPerRow} pokemonIDs={generatePokemonIDs()}/>
+      <PokeDisplay pokemonIDs={generatePokemonIDs(pageIndex)}/>
 
       <div className="app-footer">
           <button className="button" onClick={() => {handleUpdatePagination(-1)}}>Previous {entriesPerPage}</button>
