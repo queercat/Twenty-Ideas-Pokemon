@@ -1,0 +1,16 @@
+.radio-label {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    padding: 8px 16px 8px 8px;
+    gap: 8px;
+}
+
+.radio-input {
+    padding: 8px;
+    gap: 8px;
+
+    width: 36px;
+    height: 36px;
+}
