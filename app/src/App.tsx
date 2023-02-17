@@ -42,6 +42,9 @@ function App() {
     const MAX_POKEMON_ID:number = 1008; 
     let currentPage = pageIndex + 1;
 
+    /* Validate we will not enter in some erroneous page state, we miss max 11 Pokemon because of this if our updates do not end on a multiple of 12
+     * to fix we should just write a wrapper in the pokemonIDs generator in order to give us some max value.
+     */
     if ((currentPage + direction) > 0 && ((currentPage + direction) * entriesPerPage <= MAX_POKEMON_ID)) {
       updatePageIndex(pageIndex + direction);
     }

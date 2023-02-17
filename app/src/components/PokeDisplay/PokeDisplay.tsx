@@ -10,7 +10,7 @@ import "./PokeDisplay.css";
 interface DisplayInfo {
     pokemonIDs: number[],
     sortName: boolean,
-    sortID: boolean
+    sortID: boolean,
 }
 
 /**
@@ -68,7 +68,7 @@ function PokeDisplay({pokemonIDs, sortID, sortName}:DisplayInfo) {
 
 
     if (sortID) {
-        pokeBlobs.sort((a, b) => a.id - b.id)
+        pokeBlobs.sort((a, b) => a.id - b.id);
     }
 
     if (sortName) {

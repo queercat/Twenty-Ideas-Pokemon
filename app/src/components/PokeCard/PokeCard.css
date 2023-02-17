@@ -5,7 +5,7 @@
     border: 1px solid #E3E1E6; /* Neutral/30 */
     border-radius: 12px;
     flex-grow: 1;
-    flex-basis: 24%;
+    flex-basis: 24%; /* Allows us to not use rows and instead just individual flex elements. */
 }
 
 .poke-body {
@@ -17,9 +17,10 @@
 
 .poke-image {
     border-radius: 99px;
-    background: rgba(0, 0, 0, 0.07);
+    background: rgba(0, 0, 0, 0.07); /* The specified image background in the Figma spec */
 }
 
+/* Prevents ugly pop-in */
 .placeholder-image {
     border-radius: 99px;
     background: rgba(0, 0, 0, 0.07);
