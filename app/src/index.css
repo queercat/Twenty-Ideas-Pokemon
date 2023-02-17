@@ -1,13 +1,63 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* Simple font imports for now, can also just install locally if we notice font pop */
+@import url('https://fonts.googleapis.com/css2?family=Encode+Sans&display=swap');
+
+/* Global variables in case we change things, we could also just use SASS */
+:root {
+  --font-headlines-buttons: 'Encode Sans', sans-serif;
+  
+  /* Page profiles */
+  --page-background: #F6F6F7;
+  --section-background: #FDFDFD;
+  
+  /* Our color profiles */
+  --color-primary: #024E74;
+  --color-secondary: #EBF8FE;
+  --color-accent: #15BEBF;
+  --color-error: #D40300;
+  --color-warning: #FFBC10;
+  --color-success: #2C8300;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* Setting defaults */
+body {
+  margin: 0;
+  padding: 0;
+
+  /* Neutral page background */
+  background: var(--page-background);
 }
+
+
+/* https://www.figma.com/best-practices/typography-systems-in-figma/typography-scales/ */
+/* Following spec for headlines. (Typography @ Headlines & Buttons) */
+
+h1 {
+  font-size: 88pt;
+  font-family: var(--font-headlines-buttons);
+}
+
+h2 {
+  font-size: 56pt;
+  font-family: var(--font-headlines-buttons);
+}
+
+h3 {
+  font-size: 36pt;
+  font-family: var(--font-headlines-buttons);
+}
+
+h4 {
+  font-size: 28pt;
+  font-family: var(--font-headlines-buttons);
+}
+
+h5 {
+  font-size: 24pt;
+  font-family: var(--font-headlines-buttons);
+}
+
+h6 {
+  font-size: 20pt;
+  font-family: var(--font-headlines-buttons);
+}
+
