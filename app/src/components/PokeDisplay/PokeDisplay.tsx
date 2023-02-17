@@ -25,11 +25,11 @@ export interface PokeBlob {
 }
 
 /**
- * @desc the PokeDisplay component which resolves and applies our API requests to the objects.
+ * @desc takes in PokemonIDs and sends out the approriate API requests to update and render them.
  * @param pokemonIDs {number[]} an array of pokemonIDs to be sent to the API in order to be rendered.
  * @param sortName {boolean} whether or not we should sort the results by name.
  * @param sortID {boolean} whether or not we should sort the results by id.
- * @brief it's worth noting above we could take advantage of Typescripts tagged unions in order to simplify. 
+ * @brief it's worth noting above we could take advantage of Typescripts tagged unions in order to simplify sortName & sortID. 
  */
 function PokeDisplay({pokemonIDs, sortID, sortName}:DisplayInfo) {
     const API_URL = "https://pokeapi.co/api/v2/pokemon/";
